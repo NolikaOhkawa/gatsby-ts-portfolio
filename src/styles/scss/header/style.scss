@@ -1,0 +1,20 @@
+.lang_btn_en,
+.lang_btn_ja {
+  transition: color 0.5s ease;
+}
+.lang_btn_en {
+  &.__en {
+    color: #cfa254;
+  }
+  &.__ja {
+    color: #444;
+  }
+}
+.lang_btn_ja {
+  &.__ja {
+    color: #cfa254;
+  }
+  &.__en {
+    color: #444;
+  }
+}
