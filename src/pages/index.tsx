@@ -44,6 +44,13 @@ const BlogIndex = ({
 
       <h1 className='text-3xl font-bold underline'>Hello world!</h1>
 
+      {posts.map((post) => (
+        <div key={post.uri}>
+          <p>{post.title}</p>
+          <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+        </div>
+      ))}
+
       {/* <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
           const title = post.title;
@@ -68,29 +75,30 @@ const BlogIndex = ({
             </li>
           );
         })}
-      </ol>
-
+      </ol> */}
       {previousPagePath && (
         <>
           <Link to={previousPagePath}>Previous page</Link>
           <br />
         </>
       )}
-      {nextPagePath && <Link to={nextPagePath}>Next page</Link>} */}
+      {nextPagePath && <Link to={nextPagePath}>Next page</Link>}
     </Layout>
   );
 };
-
-export default BlogIndex;
 
 export const pageQuery = graphql`
   query MyQuery {
     allWpPost(sort: { date: DESC }) {
       nodes {
-        date(formatString: "MMMDD YYYY")
+        date(formatString: "MMM DD, YYYY")
         id
         title
+        uri
+        excerpt
       }
     }
   }
 `;
+
+export default BlogIndex;
