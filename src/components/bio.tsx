@@ -5,8 +5,8 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const Bio = () => {
   const { author } = useStaticQuery(graphql`
@@ -21,15 +21,21 @@ const Bio = () => {
         }
       }
     }
-  `)
+  `);
 
-  const avatarUrl = author?.avatar?.url
+  const avatarUrl = author?.avatar?.url;
 
-  const avatarImgUrl = '/600x600.jpg'
+  const avatarImgUrl = '../images/600x600.jpg';
 
   return (
-    <div className="bio">
-      {avatarUrl && <img alt={author?.firstName || ``} className="bio-avatar" src={avatarImgUrl} />}
+    <div className='bio'>
+      {avatarUrl && (
+        <img
+          alt={author?.firstName || ``}
+          className='bio-avatar'
+          src={avatarImgUrl}
+        />
+      )}
       {author?.firstName && (
         <p>
           Written by <strong>{author.firstName}</strong>
@@ -37,12 +43,14 @@ const Bio = () => {
           {author?.description || null}
           {` `}
           {author?.twitter && (
-            <a href={`https://twitter.com/${author?.twitter || ``}`}>You should follow them on Twitter</a>
+            <a href={`https://twitter.com/${author?.twitter || ``}`}>
+              You should follow them on Twitter
+            </a>
           )}
         </p>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Bio
+export default Bio;
