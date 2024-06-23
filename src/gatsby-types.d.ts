@@ -12938,7 +12938,7 @@ type LayoutQueryQuery = { readonly wp: { readonly generalSettings: { readonly ti
 type MyQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type MyQueryQuery = { readonly allWpPost: { readonly nodes: ReadonlyArray<{ readonly date: string | null, readonly id: string, readonly title: string | null, readonly uri: string | null, readonly excerpt: string | null }> } };
+type MyQueryQuery = { readonly allWpPost: { readonly nodes: ReadonlyArray<{ readonly date: string | null, readonly id: string, readonly title: string | null }> } };
 
 
 }
